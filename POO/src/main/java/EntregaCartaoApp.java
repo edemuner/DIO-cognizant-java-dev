@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 public class EntregaCartaoApp {
 
@@ -6,15 +6,17 @@ public class EntregaCartaoApp {
 
 
         Endereco endereco = new Endereco();
+        endereco.cep = "000000000";
         Cliente cliente = new Cliente();
 
-        if (cliente.enderecos == null) {
-            cliente.enderecos = new ArrayList<Endereco>();
+
+        try {
+            cliente.adicionaEndereco(endereco);
+            System.out.println("Endereço adicionado com sucesso");
         }
-
-        cliente.enderecos.add(endereco);
-        System.out.println("Endereço adicionado com sucesso");
-
+        catch (Exception e){
+            System.out.println("Houve um erro ao adicionar endereço");
+        }
     }
 
 }
