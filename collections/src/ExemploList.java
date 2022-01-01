@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class ExemploList {
@@ -36,6 +38,55 @@ public class ExemploList {
         for (Double nota : notas) System.out.println(nota);
 
         System.out.println("\nExiba a terceira nota adicionada: ");
+        System.out.println(notas.get(2));
+
+        System.out.println("\nExiba a menor nota");
+        System.out.println(Collections.min(notas));
+
+        System.out.println("\nExiba a maior nota");
+        System.out.println(Collections.max(notas));
+
+        System.out.println("\nExiba a soma dos valores");
+        Iterator<Double> iterator = notas.iterator();
+        Double soma = 0d;
+        while(iterator.hasNext()){
+            Double next = iterator.next();
+            soma += next;
+        }
+        System.out.println(soma);
+
+        System.out.println("\nExiba a média das notas");
+        System.out.println(soma / notas.size());
+
+        System.out.println("\nRemova a nota 0");
+        notas.remove(0d);
+        System.out.println(notas);
+
+        System.out.println("\nRemova a nota na posição 0");
+        notas.remove(0);
+        System.out.println(notas);
+
+        System.out.println("\nRemova as notas menores que 7 e exiba a lista");
+//        for (int i = 0; i <= notas.size(); i++){
+//            if (notas.get(i) < 7){
+//                notas.remove(i);
+//            }
+//        }
+
+        Iterator<Double> iterator1 = notas.iterator();
+        while (iterator1.hasNext()){
+            if (iterator1.next() < 7d){
+                iterator1.remove();
+            }
+        }
+        System.out.println(notas);
+
+        System.out.println("\nApague toda a lista");
+        notas.clear();
+        System.out.println(notas);
+
+        System.out.println("\nConfira se a lista está vazia");
+        System.out.println(notas.isEmpty());
 
     }
 }
