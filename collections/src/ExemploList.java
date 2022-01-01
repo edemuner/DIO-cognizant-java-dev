@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class ExemploList {
 
@@ -82,11 +79,23 @@ public class ExemploList {
         System.out.println(notas);
 
         System.out.println("\nApague toda a lista");
-        notas.clear();
-        System.out.println(notas);
+//        notas.clear();
+//        System.out.println(notas);
 
         System.out.println("\nConfira se a lista está vazia");
         System.out.println(notas.isEmpty());
+
+        System.out.println("Crie uma lista chamada notas 2 e" +
+                "coloque todos os elementos da lista Arraylist nessa nova lista");
+        List<Double> notas2 = new LinkedList<>(notas);
+        System.out.println(notas2);
+
+        System.out.println("Mostre a primeira nota da nova lista sem removê-la");
+        System.out.println(notas2.get(0));
+
+        System.out.println("Mostre a primeira nota da nova lista removendo-a");
+        System.out.println(notas2.remove(0));
+        System.out.println(notas2);
 
     }
 }
