@@ -54,6 +54,12 @@ public class ArcoIris {
         arcoiris.clear();
         System.out.println(arcoiris.isEmpty());
 
+        System.out.println("\nNova tentativa da ordem invertida");
+        Set<Cor> reversed = new TreeSet<Cor>(Collections.reverseOrder(new ArcoIrisComparable()));
+        reversed.addAll(arcoirisTS);
+        System.out.println(reversed);
+
+
     }
 }
 
