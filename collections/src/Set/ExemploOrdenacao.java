@@ -21,7 +21,7 @@ public class ExemploOrdenacao {
         Set<Serie> minhasSeries = new HashSet<Serie>(){{
             add(new Serie("got", "fantasia", 60));
             add(new Serie("dark", "drama", 60));
-            add(new Serie("that 70's show", "comedia", 60));
+            add(new Serie("that 70's show", "comedia", 25));
         }};
         for (Serie serie : minhasSeries) System.out.println(serie.getNome() + " - " +
                 serie.getGenero() + " - " +
@@ -51,9 +51,19 @@ public class ExemploOrdenacao {
                 serie.getGenero() + " - " +
                 serie.getTempo());
 
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println("\n");
+        System.out.println("\nOrdem genero");
+        Set<Serie> minhasSeries4 = new TreeSet<>(new ComparatorGenero());
+        minhasSeries4.addAll(minhasSeries);
+        for (Serie serie : minhasSeries4) System.out.println(serie.getNome() + " - " +
+                serie.getGenero() + " - " +
+                serie.getTempo());
+
+        System.out.println("\nOrdem tempo");
+        Set<Serie> minhasSeries5 = new TreeSet<>(new ComparatorTempo());
+        minhasSeries5.addAll(minhasSeries);
+        for (Serie serie : minhasSeries5) System.out.println(serie.getNome() + " - " +
+                serie.getGenero() + " - " +
+                serie.getTempo());
     }
 }
 
@@ -67,6 +77,22 @@ class ComparatorNomeGeneroTempo implements Comparator<Serie> {
         int genero = s1.getGenero().compareTo(s2.getGenero());
         if (genero != 0) return genero;
 
+        return Integer.compare(s1.getTempo(), s2.getTempo());
+    }
+}
+
+class ComparatorGenero implements Comparator<Serie> {
+
+    @Override
+    public int compare(Serie s1, Serie s2) {
+        return s1.getGenero().compareTo(s2.getGenero());
+    }
+}
+
+class ComparatorTempo implements Comparator<Serie> {
+
+    @Override
+    public int compare(Serie s1, Serie s2) {
         return Integer.compare(s1.getTempo(), s2.getTempo());
     }
 }
