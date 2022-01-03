@@ -1,9 +1,6 @@
 package Map;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ExemploMap {
 
@@ -53,17 +50,69 @@ public class ExemploMap {
         System.out.println(Collections.max(carrosPopulares.values()));
         System.out.println(consumoMaisEficiente);
 
+        // forma apropriada para localizar outra entrada com o mesmo valor
         Set<Map.Entry<String, Double>> entries = carrosPopulares.entrySet();
         String modeloMaisEficiente = "";
         for (Map.Entry<String, Double> entry : entries){
             if (entry.getValue().equals(consumoMaisEficiente)){
                 modeloMaisEficiente = entry.getKey();
+                System.out.println(modeloMaisEficiente);
             }
         }
-        System.out.println(modeloMaisEficiente);
 
-//        System.out.println("\n");
-//        System.out.println("\n");
+
+        System.out.println("\nExiba o modelo menos econômico e seu consumo");
+        Double consumoMenosEficiente = Collections.min(carrosPopulares.values());
+        String modeloMenosEficiente = "";
+        for (Map.Entry<String, Double> entry : carrosPopulares.entrySet()){
+            if (entry.getValue().equals(consumoMenosEficiente)){
+                modeloMenosEficiente = entry.getKey();
+                System.out.println("Modelo menos eficiente " + modeloMenosEficiente +
+                        " - " + consumoMenosEficiente);
+            }
+        }
+
+
+        System.out.println("\nExiba a soma dos consumos");
+        Double soma = 0d;
+        for (Double consumo : carrosPopulares.values()) soma += consumo;
+        System.out.println(soma);
+
+        System.out.println("\nExiba a média dos consumos deste dicionário");
+        System.out.println(soma / carrosPopulares.size());
+
+
+        System.out.println("\nRemova os modelos com o consumo igual a 15.6");
+        Collection<Double> consumos = carrosPopulares.values();
+        consumos.removeIf(foo -> foo.equals(15.6));
+        System.out.println(consumos);
+
+        System.out.println("\nExiba os carros na ordem em que foram informados");
+        Map<String, Double>  carrosPopulares1 = new LinkedHashMap<String, Double>(){{
+            put("gol", 14.4);
+            put("uno", 15.6);
+            put("mobi", 16.1);
+            put("hb20", 14.5);
+            put("kwid", 15.6);
+        }};
+        System.out.println(carrosPopulares1);
+
+        System.out.println("\nExiba o dicionário ordenado pelo modelo");
+        Map<String, Double>  carrosPopulares2 = new TreeMap<String, Double>(){{
+            put("gol", 14.4);
+            put("uno", 15.6);
+            put("mobi", 16.1);
+            put("hb20", 14.5);
+            put("kwid", 15.6);
+        }};
+        System.out.println(carrosPopulares2);
+
+        System.out.println("\nApague o dicionário de carros");
+        carrosPopulares.clear();
+
+        System.out.println("\nConferir se está vazio");
+        System.out.println(carrosPopulares.isEmpty());
+
 //        System.out.println("\n");
     }
 
