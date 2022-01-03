@@ -1,6 +1,5 @@
 package Set;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class ArcoIris {
@@ -26,7 +25,7 @@ public class ArcoIris {
         System.out.println(arcoiris.size());
 
         System.out.println("\ncores em ordem alfabética");
-        Set<Cor> arcoirisTS = new TreeSet<>(new ArcoIrisComparable());
+        Set<Cor> arcoirisTS = new TreeSet<>(new ArcoIrisComparator());
         arcoirisTS.addAll(arcoiris);
         System.out.println(arcoirisTS);
 
@@ -55,7 +54,7 @@ public class ArcoIris {
         System.out.println(arcoiris.isEmpty());
 
         System.out.println("\nNova tentativa da ordem invertida");
-        Set<Cor> reversed = new TreeSet<Cor>(Collections.reverseOrder(new ArcoIrisComparable()));
+        Set<Cor> reversed = new TreeSet<Cor>(Collections.reverseOrder(new ArcoIrisComparator()));
         reversed.addAll(arcoirisTS);
         System.out.println(reversed);
 
@@ -63,7 +62,7 @@ public class ArcoIris {
     }
 }
 
-class ArcoIrisComparable implements Comparator<Cor>{
+class ArcoIrisComparator implements Comparator<Cor>{
 
 
     @Override
