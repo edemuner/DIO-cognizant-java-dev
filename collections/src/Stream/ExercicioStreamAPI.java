@@ -117,6 +117,10 @@ public class ExercicioStreamAPI {
         System.out.println(new HashSet<>(numerosAleatorios).size());
 
         System.out.println("\nMostre o menor valor da lista");
+        System.out.println(numerosAleatorios.stream()
+                        .map(Integer::parseInt)
+                        .min(Integer::compare).get());
+
         System.out.println("\nMostre o maior valor da lista");
         System.out.println("\nPegue apenas os números ímpares e some");
         System.out.println("\nMostre a lista na ordem numérica");
