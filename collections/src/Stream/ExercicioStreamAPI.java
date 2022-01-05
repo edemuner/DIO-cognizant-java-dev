@@ -141,6 +141,10 @@ public class ExercicioStreamAPI {
                         .forEach(System.out::println);
 
         System.out.println("\nAgrupe os valores ímpares múltiplos de 3 e de 5");
+        numerosAleatorios.stream()
+                .map(Integer::parseInt)
+                .filter(i -> i % 2 != 0 && (i % 3 == 0 || i % 5 == 0))
+                .forEach(System.out::println);
 
     }
 }
