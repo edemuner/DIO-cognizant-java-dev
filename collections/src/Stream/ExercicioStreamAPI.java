@@ -1,11 +1,9 @@
 package Stream;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class ExercicioStreamAPI {
@@ -71,6 +69,45 @@ public class ExercicioStreamAPI {
                 .map(Integer::parseInt)
                 .collect(Collectors.toList()));
 
+        System.out.println("\nPegue os números pares e maiores que 2 e coloque em uma lista");
+//        numerosAleatorios.stream()
+//                        .map(Integer::parseInt)
+//                        .filter(new Predicate<Integer>() {
+//                            @Override
+//                            public boolean test(Integer i) {
+//                                if (i % 2 == 0 && i > 2){
+//                                    return true;
+//                                }
+//                            }
+//                        })
+//                .collect(Collectors.toList());
+        List<Integer> paresgt2 = numerosAleatorios.stream()
+                .map(Integer::parseInt)
+                .filter(integer -> integer % 2 == 0 && integer > 2)
+                .collect(Collectors.toList());
+        System.out.println(paresgt2);
+
+
+        System.out.println("\nMostre a média dos números");
+        numerosAleatorios.stream()
+                .mapToInt(Integer::parseInt)
+                .average()
+                .ifPresent(System.out::println);
+
+//        inserindo numa variável e imprimindo com .getAsDouble()
+//        System.out.println(average.getAsDouble());
+
+        System.out.println("\nRemova os valores ímpares");
+        List<Integer> numerosAleatorios1 = numerosAleatorios.stream()
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+        numerosAleatorios1.removeIf(i -> i % 2 != 0);
+        System.out.println(numerosAleatorios1);
+
+
+        System.out.println("\n");
+        System.out.println("\n");
+        System.out.println("\n");
         System.out.println("\n");
         System.out.println("\n");
         System.out.println("\n");
