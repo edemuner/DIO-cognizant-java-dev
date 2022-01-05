@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ExercicioStreamAPI {
 
@@ -104,14 +105,22 @@ public class ExercicioStreamAPI {
         numerosAleatorios1.removeIf(i -> i % 2 != 0);
         System.out.println(numerosAleatorios1);
 
+        // exercícios
 
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println("\n");
+        System.out.println("\nIgnore os 3 primeiros elementos da lista e imprima o restante");
+        numerosAleatorios.stream()
+                        .skip(3)
+                        .collect(Collectors.toList())
+                        .forEach(System.out::println);
+
+        System.out.println("\nRetirando os números repetidos na lista, quantos números ficam?");
+
+
+        System.out.println("\nMostre o menor valor da lista");
+        System.out.println("\nMostre o maior valor da lista");
+        System.out.println("\nPegue apenas os números ímpares e some");
+        System.out.println("\nMostre a lista na ordem numérica");
+        System.out.println("\nAgrupe os valores ímpares múltiplos de 3 e de 5");
 
     }
 }
