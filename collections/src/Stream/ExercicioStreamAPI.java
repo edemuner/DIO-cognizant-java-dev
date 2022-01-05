@@ -115,6 +115,7 @@ public class ExercicioStreamAPI {
 
         System.out.println("\nRetirando os números repetidos na lista, quantos números ficam?");
         System.out.println(new HashSet<>(numerosAleatorios).size());
+        // poderia ser resolvido também com distinct()
 
         System.out.println("\nMostre o menor valor da lista");
         System.out.println(numerosAleatorios.stream()
@@ -127,6 +128,12 @@ public class ExercicioStreamAPI {
                 .max(Integer::compare).get());
 
         System.out.println("\nPegue apenas os números ímpares e some");
+        System.out.println(numerosAleatorios.stream()
+                        .map(Integer::parseInt)
+                        .filter(i -> i % 2 != 0)
+                        .reduce(0, Integer::sum));
+
+
         System.out.println("\nMostre a lista na ordem numérica");
         System.out.println("\nAgrupe os valores ímpares múltiplos de 3 e de 5");
 
