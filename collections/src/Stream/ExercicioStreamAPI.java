@@ -114,7 +114,7 @@ public class ExercicioStreamAPI {
                         .forEach(System.out::println);
 
         System.out.println("\nRetirando os números repetidos na lista, quantos números ficam?");
-
+        System.out.println(new HashSet<>(numerosAleatorios).size());
 
         System.out.println("\nMostre o menor valor da lista");
         System.out.println("\nMostre o maior valor da lista");
