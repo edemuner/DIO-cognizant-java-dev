@@ -135,6 +135,11 @@ public class ExercicioStreamAPI {
 
 
         System.out.println("\nMostre a lista na ordem numérica");
+        numerosAleatorios.stream()
+                        .map(Integer::parseInt)
+                        .sorted()
+                        .forEach(System.out::println);
+
         System.out.println("\nAgrupe os valores ímpares múltiplos de 3 e de 5");
 
     }
