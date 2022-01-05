@@ -122,6 +122,10 @@ public class ExercicioStreamAPI {
                         .min(Integer::compare).get());
 
         System.out.println("\nMostre o maior valor da lista");
+        System.out.println(numerosAleatorios.stream()
+                .map(Integer::parseInt)
+                .max(Integer::compare).get());
+
         System.out.println("\nPegue apenas os números ímpares e some");
         System.out.println("\nMostre a lista na ordem numérica");
         System.out.println("\nAgrupe os valores ímpares múltiplos de 3 e de 5");
