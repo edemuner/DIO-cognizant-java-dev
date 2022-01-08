@@ -1,3 +1,5 @@
+package com.java;
+
 public abstract class Conta implements Iconta{
 
     protected static final int AGENCIA_PADRAO = 1;

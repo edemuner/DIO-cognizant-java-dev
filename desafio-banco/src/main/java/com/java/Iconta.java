@@ -1,3 +1,5 @@
+package com.java;
+
 public interface Iconta {
 
     void sacar(double valor);

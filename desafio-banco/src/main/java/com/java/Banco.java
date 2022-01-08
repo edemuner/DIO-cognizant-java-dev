@@ -1,10 +1,11 @@
-public class Cliente {
+package com.java;
+
+import java.util.List;
+
+public class Banco {
 
     private String nome;
-
-    public Cliente(String nome) {
-        this.nome = nome;
-    }
+    private List<Conta> contas;
 
     public String getNome() {
         return nome;
