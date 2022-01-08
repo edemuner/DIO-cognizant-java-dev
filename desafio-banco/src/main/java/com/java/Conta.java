@@ -29,7 +29,10 @@ public abstract class Conta implements Iconta{
 
     @Override
     public void sacar(double valor) {
-        saldo -= valor;
+
+        if (saldo >= valor) {
+            saldo -= valor;
+        }
     }
 
     @Override
