@@ -1,4 +1,6 @@
 package com.java;
+import java.util.Date;
+import java.util.*;
 
 public abstract class Conta implements Iconta{
 
@@ -7,6 +9,9 @@ public abstract class Conta implements Iconta{
     protected int numero;
     protected double saldo = 0d;
     private static int SEQUENCIAL = 1;
+    private List<Map.Entry<String, Double>> movimentacoes = new ArrayList<Map.Entry<String, Double>>();
+
+
     protected Cliente cliente;
 
     public Conta(Cliente cliente) {
@@ -32,6 +37,7 @@ public abstract class Conta implements Iconta{
 
         if (saldo >= valor) {
             saldo -= valor;
+//            String dateToStr = new Date().toString("yyyy-MM-dd HH:mm:SS")};
         }
     }
 
