@@ -1,4 +1,6 @@
 package com.java;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Date;
 import java.util.*;
 
@@ -68,5 +70,13 @@ public abstract class Conta implements Iconta{
     public void receberTransferencia(Movimentacao mov){
         movimentacoes.add(mov);
         depositar(mov.getValor());
+    }
+
+    public void imprimirExtratoDetalhado(){
+        this.imprimirExtrato();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        for (Movimentacao mov : movimentacoes){
+            System.out.println(mov.getValor() + " . . . " + mov.getMomento().format(myFormatObj));
+        }
     }
 }

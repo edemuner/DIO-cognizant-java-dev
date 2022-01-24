@@ -1,16 +1,16 @@
 package com.java;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Movimentacao {
 
     private double valor;
-    private LocalDate momento;
+    private LocalDateTime momento;
     private Conta conta;
 
     public Movimentacao(double valor, Conta conta) {
         this.valor = valor;
         this.conta = conta;
-        momento = LocalDate.now();
+        momento = LocalDateTime.now();
     }
 
     public double getValor() {
@@ -21,11 +21,11 @@ public class Movimentacao {
         this.valor = valor;
     }
 
-    public LocalDate getMomento() {
+    public LocalDateTime getMomento() {
         return momento;
     }
 
-    public void setMomento(LocalDate momento) {
+    public void setMomento(LocalDateTime momento) {
         this.momento = momento;
     }
 
