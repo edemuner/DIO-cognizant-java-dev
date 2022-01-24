@@ -7,12 +7,13 @@ public class Main {
         Conta cc = new ContaCorrente(new Cliente("Eduardo"));
         Conta cp = new ContaPoupanca(new Cliente("Alice"));
 
-        cc.depositar(100);
-        cc.transferir(50, cp);
+        cc.depositar(200);
+        cp.depositar(300);
+
+        cp.transferir(100, cc);
+
         cc.imprimirExtrato();
         cp.imprimirExtrato();
-
-        // log de movimentação financeira - classe movimentação
 
     }
 }
