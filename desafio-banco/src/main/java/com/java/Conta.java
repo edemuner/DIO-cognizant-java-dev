@@ -9,7 +9,6 @@ public abstract class Conta implements Iconta{
     protected int numero;
     protected double saldo = 0d;
     private static int SEQUENCIAL = 1;
-    private List<Map.Entry<String, Double>> movimentacoes = new ArrayList<Map.Entry<String, Double>>();
 
 
     protected Cliente cliente;
@@ -18,6 +17,7 @@ public abstract class Conta implements Iconta{
         this.agencia = Conta.AGENCIA_PADRAO;
         this.numero = SEQUENCIAL++;
         this.cliente = cliente;
+        Banco.addConta(this);
     }
 
     public int getAgencia() {
