@@ -6,11 +6,13 @@ public class Movimentacao {
     private double valor;
     private LocalDateTime momento;
     private Conta conta;
+    private String tipo;
 
-    public Movimentacao(double valor, Conta conta) {
+    public Movimentacao(double valor, Conta conta, String tipo) {
         this.valor = valor;
         this.conta = conta;
         momento = LocalDateTime.now();
+        this.tipo = tipo;
     }
 
     public double getValor() {
@@ -35,5 +37,13 @@ public class Movimentacao {
 
     public void setConta(Conta conta) {
         this.conta = conta;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

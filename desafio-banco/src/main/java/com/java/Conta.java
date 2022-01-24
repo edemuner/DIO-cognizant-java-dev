@@ -1,7 +1,5 @@
 package com.java;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.util.Date;
 import java.util.*;
 
 public abstract class Conta implements Iconta{
@@ -43,21 +41,21 @@ public abstract class Conta implements Iconta{
             saldo -= valor;
 //            String dateToStr = new Date().toString("yyyy-MM-dd HH:mm:SS")};
         }
-        movimentacoes.add(new Movimentacao(valor, this));
+        movimentacoes.add(new Movimentacao(valor, this, "Saque"));
     }
 
     @Override
     public void depositar(double valor) {
         saldo += valor;
-        movimentacoes.add(new Movimentacao(valor, this));
+        movimentacoes.add(new Movimentacao(valor, this, "Depósito"));
 
     }
 
     @Override
     public void transferir(double valor, Conta contaDestino) {
         this.sacar(valor);
-        contaDestino.receberTransferencia(new Movimentacao(valor, contaDestino));
-        movimentacoes.add(new Movimentacao(valor, this));
+        contaDestino.receberTransferencia(new Movimentacao(valor, contaDestino, "Transferência rec."));
+        movimentacoes.add(new Movimentacao(valor, this, "Transferência env."));
     }
 
     protected void imprimirInfosComuns() {
@@ -76,7 +74,7 @@ public abstract class Conta implements Iconta{
         this.imprimirExtrato();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         for (Movimentacao mov : movimentacoes){
-            System.out.println(mov.getValor() + " . . . " + mov.getMomento().format(myFormatObj));
+            System.out.println(mov.getTipo() + " " + mov.getValor() + " . . . " + mov.getMomento().format(myFormatObj));
         }
     }
 }
