@@ -53,7 +53,7 @@ public abstract class Conta implements Iconta{
 
     @Override
     public void transferir(double valor, Conta contaDestino) {
-        this.sacar(valor);
+        saldo -= valor;
         contaDestino.receberTransferencia(new Movimentacao(valor, contaDestino, "Transferência rec."));
         movimentacoes.add(new Movimentacao(valor, this, "Transferência env."));
     }
@@ -67,7 +67,7 @@ public abstract class Conta implements Iconta{
 
     public void receberTransferencia(Movimentacao mov){
         movimentacoes.add(mov);
-        depositar(mov.getValor());
+        saldo += mov.getValor();
     }
 
     public void imprimirExtratoDetalhado(){
