@@ -1,9 +1,22 @@
 package com.dio.beansspringboot;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Livro {
 
     private String nome;
     private String codigo;
+
+    @Autowired
+    AutorLivro autorLivro;
+
+    public AutorLivro getAutorLivro() {
+        return autorLivro;
+    }
+
+    public void setAutorLivro(AutorLivro autorLivro) {
+        this.autorLivro = autorLivro;
+    }
 
     public String getNome() {
         return nome;
@@ -23,5 +36,6 @@ public class Livro {
 
     public void exibir(){
         System.out.println(this.nome + " - " + this.codigo);
+        autorLivro.exibirAutor();
     }
 }

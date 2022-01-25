@@ -2,6 +2,7 @@ package com.dio.beansspringboot;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 
 public class App {
 
@@ -12,7 +13,12 @@ public class App {
         Livro livro = factory.getBean(Livro.class);
         livro.setNome("Harry Potter");
         livro.setCodigo("I4JN53J4N53");
+
+        Autor autor = factory.getBean(Autor.class);
+        autor.setNome("J. K. Rowling");
         livro.exibir();
+
+        ((AbstractApplicationContext) factory).close();
 
     }
 }
