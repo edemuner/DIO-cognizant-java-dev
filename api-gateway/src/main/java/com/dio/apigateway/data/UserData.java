@@ -1,4 +1,4 @@
-package data;
+package com.dio.apigateway.data;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
